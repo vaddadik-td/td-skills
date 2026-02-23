@@ -6,11 +6,11 @@ Treasure Data skills for [Claude Code](https://claude.com/claude-code) to enhanc
 
 Skills are folders of instructions and resources that Claude loads dynamically to improve performance on specialized tasks. These TD skills teach Claude how to use our tools and follow our best practices.
 
-## 🔴 MANDATORY AUTO-INVOCATION - SQL Analyst Suite
+## SQL Analyst Suite - Auto-Invocation
 
-**Five core SQL skills now automatically invoke based on your questions:**
+**Five core SQL skills automatically activate based on your questions:**
 
-| Skill | Auto-Invokes When | Examples |
+| Skill | Activates When | Examples |
 |-------|------------------|----------|
 | **analytical-query** | Asking for analysis/metrics/trends | "Top 10 products by revenue", "Count daily signups", "Show revenue trends" |
 | **smart-sampler** | Asking for data samples/records | "Show 100 sample orders", "Give me examples of null emails", "Preview recent data" |
@@ -22,22 +22,22 @@ Skills are folders of instructions and resources that Claude loads dynamically t
 
 ### SQL Skills
 
-#### Core Analyst Skills ⭐ MANDATORY AUTO-INVOCATION
+#### Core Analyst Skills
 
 **Analytical & Data Exploration Suite:**
 
-- **[sql-skills/analytical-query](./sql-skills/analytical-query)** - 🔴 **MANDATORY** - Natural language to SQL analytics. Auto-invokes on: summarize, aggregate, analyze, top N, trends, metrics, KPI. Generates optimized queries, executes automatically, and creates professional Plotly visualizations. **Also auto-invokes smart-sampler for sampling/data preview requests.**
+- **[sql-skills/analytical-query](./sql-skills/analytical-query)** - Natural language to SQL analytics for summarizing, aggregating, analyzing trends, metrics, and KPIs. Generates optimized queries, executes automatically, and creates professional Plotly visualizations. **Also uses smart-sampler for sampling/data preview requests.**
 
-- **[sql-skills/smart-sampler](./sql-skills/smart-sampler)** - Intelligent data sampling with multiple strategies (random, time-based, stratified, edge-case). Auto-invokes for: sample, show records, preview data, show examples. Perfect for data exploration and finding examples without full scans.
+- **[sql-skills/smart-sampler](./sql-skills/smart-sampler)** - Intelligent data sampling with multiple strategies (random, time-based, stratified, edge-case) for exploring data and finding examples without full scans.
 
 #### Query Support & Optimization
 
 **Schema Discovery & Analysis:**
-- **[sql-skills/schema-explorer](./sql-skills/schema-explorer)** - 🔴 **AUTO-INVOKED** - Discover databases, tables, columns, and PII fields across your TD environment. Auto-invokes on: "What tables", "Show schema", "Find tables with", "List columns", "Describe table"
+- **[sql-skills/schema-explorer](./sql-skills/schema-explorer)** - Discover databases, tables, columns, and PII fields across your TD environment.
 
-- **[sql-skills/data-profiler](./sql-skills/data-profiler)** - 🔴 **AUTO-INVOKED** - Analyze data quality, distributions, completeness, null rates, and outliers with professional visualizations. Auto-invokes on: "Profile table", "Analyze data quality", "Show distribution", "Data stats"
+- **[sql-skills/data-profiler](./sql-skills/data-profiler)** - Analyze data quality, distributions, completeness, null rates, and outliers with professional visualizations.
 
-- **[sql-skills/query-explainer](./sql-skills/query-explainer)** - 🔴 **AUTO-INVOKED** - Convert SQL queries to natural language explanations, identify performance issues, and generate documentation. Auto-invokes on: "Explain this query", "What does this SQL do?", "Break down this query"
+- **[sql-skills/query-explainer](./sql-skills/query-explainer)** - Convert SQL queries to natural language explanations, identify performance issues, and generate documentation.
 
 **Query Optimization & Development:**
 - **[sql-skills/trino](./sql-skills/trino)** - Write and optimize SQL queries for Trino with TD best practices (td_interval, approx functions, time filtering)
@@ -49,7 +49,7 @@ Skills are folders of instructions and resources that Claude loads dynamically t
 
 #### Data Discovery & Profiling
 
-(See auto-invocation section above - schema-explorer and data-profiler are included above with auto-invocation rules)
+(See SQL Analyst Suite section above - schema-explorer and data-profiler are listed there)
 
 ### Realtime Skills
 
@@ -147,20 +147,20 @@ Skills are folders of instructions and resources that Claude loads dynamically t
 Once installed, explicitly reference skills using the `skill` keyword to trigger them:
 
 ```
-"Show me the top 10 products by revenue last 30 days" → analytical-query (AUTO-INVOKED)
-"Sample 100 recent orders from the sales table" → smart-sampler (AUTO-INVOKED)
-"Give me examples of null email addresses" → smart-sampler (AUTO-INVOKED)
-"Analyze the revenue trend by month" → analytical-query (AUTO-INVOKED)
-"Profile the customers table for data quality" → data-profiler (AUTO-INVOKED)
-"What tables are available in my database?" → schema-explorer (AUTO-INVOKED)
-"Show me the schema for the orders table" → schema-explorer (AUTO-INVOKED)
-"Find tables with PII columns" → schema-explorer (AUTO-INVOKED)
-"What columns does the sales table have?" → schema-explorer (AUTO-INVOKED)
-"Explain this query: SELECT * FROM orders WHERE time > now() - 7d" → query-explainer (AUTO-INVOKED)
-"What does this SQL do? [paste query]" → query-explainer (AUTO-INVOKED)
-"Break down this complex query step by step" → query-explainer (AUTO-INVOKED)
-"Profile the events table for null values and distribution" → data-profiler (AUTO-INVOKED)
-"Show me data quality metrics for the users table" → data-profiler (AUTO-INVOKED)
+"Show me the top 10 products by revenue last 30 days" → analytical-query (auto)
+"Sample 100 recent orders from the sales table" → smart-sampler (auto)
+"Give me examples of null email addresses" → smart-sampler (auto)
+"Analyze the revenue trend by month" → analytical-query (auto)
+"Profile the customers table for data quality" → data-profiler (auto)
+"What tables are available in my database?" → schema-explorer (auto)
+"Show me the schema for the orders table" → schema-explorer (auto)
+"Find tables with PII columns" → schema-explorer (auto)
+"What columns does the sales table have?" → schema-explorer (auto)
+"Explain this query: SELECT * FROM orders WHERE time > now() - 7d" → query-explainer (auto)
+"What does this SQL do? [paste query]" → query-explainer (auto)
+"Break down this complex query step by step" → query-explainer (auto)
+"Profile the events table for null values and distribution" → data-profiler (auto)
+"Show me data quality metrics for the users table" → data-profiler (auto)
 "Use the Trino skill to extract data from sample_datasets.nasdaq table"
 "Use the Hive skill to write a query for daily user aggregation"
 "Use the time-filtering skill to add partition pruning to my query"
@@ -201,12 +201,12 @@ Once installed, explicitly reference skills using the `skill` keyword to trigger
 "Use the visualization skill to create a Plotly chart with TD colors"
 ```
 
-**🔴 AUTO-INVOCATION NOTES:**
-- **Analytical-Query**: Automatically invoked for analysis questions (top, trends, count, sum, metrics)
-- **Smart-Sampler**: Automatically invoked for sampling requests (sample, show records, preview, examples)
-- **Schema-Explorer**: Automatically invoked for schema questions (what tables, show schema, find columns, describe table)
-- **Data-Profiler**: Automatically invoked for data quality/profiling requests (profile, analyze quality, distributions)
-- **Query-Explainer**: Automatically invoked when sharing SQL queries to understand (explain query, what does this do)
+**Auto-Invocation Notes:**
+- **analytical-query**: Automatically activates for analysis questions (top, trends, count, sum, metrics)
+- **smart-sampler**: Automatically activates for sampling requests (sample, show records, preview, examples)
+- **schema-explorer**: Automatically activates for schema questions (what tables, show schema, find columns, describe table)
+- **data-profiler**: Automatically activates for data quality/profiling requests (profile, analyze quality, distributions)
+- **query-explainer**: Automatically activates when sharing SQL queries to understand (explain query, what does this do)
 
 ## Creating Your Own TD Skills
 

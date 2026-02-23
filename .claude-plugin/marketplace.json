@@ -25,8 +25,7 @@
         "./sql-skills/schema-explorer",
         "./sql-skills/data-profiler",
         "./sql-skills/smart-sampler",
-        "./sql-skills/query-explainer",
-        "./sql-skills/query-optimizer"
+        "./sql-skills/query-explainer"
       ]
     },
     {

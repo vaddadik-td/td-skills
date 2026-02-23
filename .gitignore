@@ -8,3 +8,5 @@ sql-skills/docs/
 *.swo
 *~
 .DS_Store
+.claude/settings.local.json
+.claude/settings.json
