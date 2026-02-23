@@ -147,16 +147,6 @@ create table customer_events with (
 ) as select * from raw_events where td_interval(time, '-30d', 'JST')
 ```
 
-### Join Distribution Hints
-
-```sql
--- BROADCAST: Small table (<100MB)
--- set session join_distribution_type = 'BROADCAST'
-
--- PARTITIONED: Large tables or memory issues
--- set session join_distribution_type = 'PARTITIONED'
-```
-
 ## Engine Migration
 
 ### Hive → Trino
