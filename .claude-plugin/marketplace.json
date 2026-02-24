@@ -11,11 +11,7 @@
   "plugins": [
     {
       "name": "sql-skills",
-<<<<<<< main
       "description": "Comprehensive SQL and data analysis skills for Treasure Data including Trino/Hive query optimization, time-based filtering, natural language to SQL with visualization, intelligent schema exploration, automated data profiling with distribution charts, smart sampling strategies, query explanation and optimization. Complete analyst toolkit for data discovery, quality analysis, and performance tuning.",
-=======
-      "description": "SQL query skills for Treasure Data including Trino and Hive query optimization, time-based filtering with td_interval, and Trino-to-Hive migration",
->>>>>>> main
       "source": "./",
       "strict": false,
       "skills": [
@@ -23,7 +19,6 @@
         "./sql-skills/hive",
         "./sql-skills/trino-optimizer",
         "./sql-skills/trino-to-hive-migration",
-<<<<<<< main
         "./sql-skills/td-mcp",
         "./sql-skills/time-filtering",
         "./sql-skills/analytical-query",
@@ -31,9 +26,6 @@
         "./sql-skills/data-profiler",
         "./sql-skills/smart-sampler",
         "./sql-skills/query-explainer"
-=======
-        "./sql-skills/time-filtering"
->>>>>>> main
       ]
     },
     {
